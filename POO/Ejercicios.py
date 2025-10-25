@@ -135,14 +135,14 @@ class Persona:
         self.apellido = apellido
   
 class Cliente(Persona):#Clase cliente que hereda Persona  
-    def __init__(self,nombre,apellido,numerocuenta,balance):
+    def __init__(self,nombre,apellido,numerocuenta,balance=0):
         super().__init__(nombre,apellido)
         self.numerocuenta = numerocuenta
         self.balance = balance
     
     def __str__(self):
         return (f"Cliente: {self.nombre} {self.apellido}\n"
-                f"Número de cuenta: {self.numero_cuenta}\n"
+                f"Número de cuenta: {self.numerocuenta}\n"
                 f"Balance actual: ${self.balance:.2f}")
 
     def depositar(self,monto):
@@ -162,10 +162,10 @@ class Cliente(Persona):#Clase cliente que hereda Persona
             print(f"Retiro exitoso. Nuevo balance: ${self.balance:.2f}")
 
 
-def crear_cliente(self):#funcion crear cliente
-    nombre = (input('indique su nombre: '))
-    apellido = (input('indique su apellido: '))
-    numerocuenta = (int(input('indique su numero de cuenta')))
+def crear_cliente():#funcion crear cliente
+    nombre = input('indique su nombre: ')
+    apellido = input('indique su apellido: ')
+    numerocuenta = int(input('indique su numero de cuenta'))
     while True:
         try:
             balance_inicial = float(input("Ingrese el balance inicial: "))
@@ -174,35 +174,31 @@ def crear_cliente(self):#funcion crear cliente
             print("Por favor, ingrese un número válido.")
     return Cliente(nombre, apellido, numerocuenta, balance_inicial)
 
-def inicio(self): # Función principal que organiza el flujo del programa
+def inicio(): # Función principal que organiza el flujo del programa
     cliente = crear_cliente()
     print("Cliente creado exitosamente:")
     print(cliente)
 
-    while True:
-        print("¿Qué operación desea realizar?")
-        print("1.Depositar")
-        print("2.Retirar")
-        print("3.Mostrar balance")
-        print("4.Salir")
-        opcion = input("Seleccione una opción (1-4): ")
 
-        if opcion == "1":
-            try:
-                monto = float(input("Ingrese el monto a depositar: "))
-                cliente.depositar(monto)
-            except ValueError:
-                print("Monto inválido.")
-        elif opcion == "2":
-            try:
-                monto = float(input("Ingrese el monto a retirar: "))
-                cliente.retirar(monto)
-            except ValueError:
-                print("Monto inválido.")
-        elif opcion == "3":
+    while True:
+        print('Que operacion desea realizar?')
+        print('1.Depositar')
+        print('2.Retirar')
+        print('3.Mostrar balance')
+        print('4.Salir')
+        opcion = input('Seleccione una opcion (1-4): ')
+
+        if opcion == '1':
+            monto = float(input('Ingrese el monto a depositar'))
+            cliente.depositar(monto)
+        elif opcion == '2':
+            monto = float(input("Ingrese el monto a retirar: "))
+            cliente.retirar(monto)
+        elif opcion == '3':
             print(cliente)
-        elif opcion == "4":
+        elif opcion == '4':
             print("Gracias por usar el sistema bancario. ¡Hasta pronto!")
             break
         else:
             print("Opción no válida. Intente nuevamente.")
+inicio()
