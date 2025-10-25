@@ -206,6 +206,3 @@ def inicio(self): # Función principal que organiza el flujo del programa
             break
         else:
             print("Opción no válida. Intente nuevamente.")
-
-if __name__ == "__main__": #Ejecuta el programa
-    inicio()
