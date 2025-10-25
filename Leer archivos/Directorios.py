@@ -1,5 +1,3 @@
-
-"""
 import os
 
 ruta =os.getcwd()
@@ -23,11 +21,11 @@ print(elemento_y_ruta)
 #os.rmdir('C:\\Users\\CET56\\Documents\\python\\Alternativa\\otra')
 
 archivo = open('C:\\Users\\CET56\\Documents\\python\\Alternativa\\nueva_pruba.txt')
-"""
 
 from pathlib import Path
 carpeta = Path('C:/Users/CET56/Documents/python/Alternativa')
 archivo = carpeta /'nueva_pruba.txt'
 mi_archivo = open(archivo)
 print(mi_archivo.read())
+
 mi_archivo.close()
