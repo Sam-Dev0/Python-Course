@@ -34,4 +34,3 @@ mi_perro = Perro('Mamifero', 7, 'Luis')
 mi_Perro.especie
 mi_Perro.edad
 mi_Perro.dueño
-
